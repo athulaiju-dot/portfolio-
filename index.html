@@ -1,10 +1,10 @@
 <think>
-First, the user wants to update the "Projects" section in the HTML code with new content about "Persona Finder – Advanced OSINT Toolkit". The existing projects are:
+First, the user says: "keep all the projects before there add this with that and when we clivk on this name it shows detail. update this and give the updated on e"
 
 
-## Updating HTML Section  
-- The task is to add a new project, "Persona Finder – Advanced OSINT Toolkit," to the "Projects" section of the HTML code.  
-- The existing project listed is "WhatsApp Integrated Backup System," which needs to be joined by the new entry.
+## Parsing user request
+- The user's request involves managing projects and adding new items, suggesting a feature to maintain existing projects.
+- They mentioned updating details and displaying information when clicking a name, indicating a need for interactive elements.
 </think>```html
 <!DOCTYPE html>
 <html lang="en">
@@ -308,16 +308,39 @@ First, the user wants to update the "Projects" section in the HTML code with new
             margin-bottom: 1.25rem;
         }
 
-        .project-card h3 {
+        .project-title {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
-            color: var(--text-primary);
+            color: var(--accent);
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            transition: text-decoration-color 0.3s;
         }
 
-        .project-card p {
+        .project-title:hover {
+            text-decoration-color: var(--accent);
+        }
+
+        .project-summary {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-details {
+            display: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .project-details.show {
+            display: block;
         }
 
         /* Social Links */
@@ -537,6 +560,30 @@ First, the user wants to update the "Projects" section in the HTML code with new
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <article class="project-card">
+                    <div class="project-icon">💬</div>
+                    <h3 class="project-title">WhatsApp Integrated Backup System</h3>
+                    <p class="project-summary">A secure backup solution that integrates with WhatsApp to provide encrypted, reliable data backup capabilities for users seeking additional data protection.</p>
+                    <div class="project-details">
+                        <p>More details about the WhatsApp Integrated Backup System can be added here if needed. This is a placeholder for expanded content.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-icon">🔏</div>
+                    <h3 class="project-title">Steganography-Based Secure Messaging</h3>
+                    <p class="project-summary">An innovative messaging system that leverages steganography techniques to hide confidential messages within digital media for covert communication.</p>
+                    <div class="project-details">
+                        <p>More details about the Steganography-Based Secure Messaging can be added here if needed. This is a placeholder for expanded content.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-icon">💍</div>
+                    <h3 class="project-title">One Gesture Ring (Aerocrypt)</h3>
+                    <p class="project-summary">A wearable technology project that enables gesture-based authentication and control, combining hardware innovation with security applications.</p>
+                    <div class="project-details">
+                        <p>More details about the One Gesture Ring (Aerocrypt) can be added here if needed. This is a placeholder for expanded content.</p>
+                    </div>
+                </article>
+                <article class="project-card">
                     <div class="project-icon">🔐</div>
-                    <h3>Persona Finder – Advanced OSINT Toolkit</h3>
-                    <p>Persona Finder is an advanced Open-Source Intelligence (OSINT) web platform designed to help researchers, cybersecurity students, and investigators gather publicly available intelligence from a single, unified interface. The project focuses on ethical, legal, and non-intrusive intelligence gathering, transforming raw public data into structured, actionable insights without scraping private or restricted sources.<br><br><strong>🎯 Project Objective</strong><br>The primary objective of Persona Finder is to simplify OSINT workflows by reducing the need to manually search across multiple platforms, providing clean, investigator-friendly outputs instead of raw data, offering a centralized toolkit for common reconnaissance tasks, and ensuring compatibility with modern cloud-based deployments. This project is built with real-world cybersecurity use cases in mind, rather than being a basic demo or academic experiment.<br><br><strong>🧰 Key Features</strong><br>• <strong>🔎 Username Lookup:</strong> Checks the availability of a username across multiple platforms and clearly indicates whether an account exists or not, along with direct profile links when available.<br>• <strong>📱 Phone Number OSINT:</strong> Validates international phone numbers and provides contextual intelligence such as country information, carrier details, number type, and relevant OSINT search links.<br>• <strong>🌐 IP Address & Domain Intelligence:</strong> Analyzes IP addresses or domain names to extract intelligence such as resolved IP information and provides quick access to trusted threat-analysis and reputation services like WHOIS, AbuseIPDB, and VirusTotal.<br>• <strong>🖼️ Image OSINT (Reverse Image Intelligence):</strong> Generates reverse image search links for multiple search engines, enabling investigators to trace image usage across the web without performing invasive image processing.<br><br><strong>🧠 Technology Stack</strong><br>Frontend: Static HTML, CSS, and Vanilla JavaScript<br>Backend: FastAPI (Python)<br>Hosting: Cloudflare Pages (Frontend) & Render (Backend API)<br>Architecture: Fully decoupled frontend and backend<br>Security: CORS-secured API, no client-side secrets<br>The platform is intentionally built using lightweight, framework-free frontend technology to ensure maximum compatibility, performance, and reliability on static hosting environments.<br><br><strong>⚖️ Ethical & Legal Considerations</strong><br>Persona Finder strictly adheres to ethical OSINT principles: No scraping of private or restricted data, no credential harvesting or account enumeration abuse, uses only publicly accessible information and search references, designed for educational, defensive, and investigative
+                    <h3 class="project-title">Persona Finder – Advanced OSINT Toolkit</h3>
+                    <p class="project-summary">Persona Finder is an advanced Open-Source Intelligence (OSINT)
